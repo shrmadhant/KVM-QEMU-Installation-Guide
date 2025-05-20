@@ -75,7 +75,7 @@ Aqui eu estou criando na raiz do sistema, mas também poderia criar em lugares d
 
 
 
-### **Ignorar os requisitos via registro  
+### **Ignorar os requisitos via registro**
 Na tela de instalação do Windows onde aparece o erro:
 
 Pressione `Shift + F10` para abrir o prompt.
