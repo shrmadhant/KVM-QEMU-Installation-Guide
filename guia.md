@@ -92,11 +92,11 @@ Dentro de `LabConfig`, crie os seguintes valores DWORD (32-bit):
 
     - BypassTPMCheck = 1
 
-    - `BypassSecureBootCheck` = `1`
+    - BypassSecureBootCheck = 1
 
-    - `BypassRAMCheck` = `1`
+    - BypassRAMCheck = 1
 
-    - `BypassCPUCheck` = `1`
+    - BypassCPUCheck = 1
 
 Feche tudo e continue a instalação.
 
