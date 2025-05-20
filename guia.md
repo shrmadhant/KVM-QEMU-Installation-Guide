@@ -36,7 +36,7 @@ Verifique se seu processador suporta virtualização e se os módulos foram carr
 Se o resultado for `0`, a virtualização está desativada na BIOS/UEFI.
 
 
-
+...
 
 
 
@@ -73,7 +73,7 @@ Aqui eu estou criando na raiz do sistema, mas também poderia criar em lugares d
 
 ### **Instalação do sistema**
 
-
+...
 
 ### **Ignorar os requisitos via registro**
 Na tela de instalação do Windows onde aparece o erro:
@@ -126,3 +126,5 @@ Caso ainda não esteja ativa ou retorne erro:
 	virsh net-list --all
 
 Você deve ver `default` com status `active` e `autostart` como `yes`.
+
+### **Configurando o Passthrough**
