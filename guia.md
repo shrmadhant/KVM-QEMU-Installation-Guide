@@ -5,7 +5,7 @@
 
 Primeiramente, vamos garantir que o sistema esteja atualizado. Rode:
 
-	`sudo pacman -Syu`
+	sudo pacman -Syu
 
 Isso vai atualizar **todo o sistema** e sincronizar os pacotes com a base atual dos mirrors.
 
