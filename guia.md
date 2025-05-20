@@ -23,7 +23,7 @@ Agora iremos instalar o **stack completo de virtualização com suporte a KVM**,
 
 Instale o conjunto correto:
 
-	`sudo pacman -S qemu-full virt-manager virt-viewer dnsmasq vde2 bridge-utils libvirt edk2-ovmf`
+	sudo pacman -S qemu-full virt-manager virt-viewer dnsmasq vde2 bridge-utils libvirt edk2-ovmf
 
 Se quiser um pacote mais leve, pode usar `qemu-desktop` no lugar de `qemu-full`.
 
@@ -31,7 +31,7 @@ Se quiser um pacote mais leve, pode usar `qemu-desktop` no lugar de `qemu-full`.
 
 Verifique se seu processador suporta virtualização e se os módulos foram carregados:
 
-	`egrep -c '(vmx|svm)' /proc/cpuinfo`
+	egrep -c '(vmx|svm)' /proc/cpuinfo
 
 Se o resultado for `0`, a virtualização está desativada na BIOS/UEFI.
 
@@ -43,33 +43,33 @@ Se o resultado for `0`, a virtualização está desativada na BIOS/UEFI.
 
 Verifique novamente:
 
-	`egrep -c '(vmx|svm)' /proc/cpuinfo`
+	egrep -c '(vmx|svm)' /proc/cpuinfo
 
 Se retornar algo diferente de `0`, podemos prosseguir. Carregue os módulos (Intel ou AMD):
 
 Intel:
-	`sudo modprobe kvm_intel`
+	sudo modprobe kvm_intel
 
 AMD: 
-	`sudo modprobe kvm_amd`
+	sudo modprobe kvm_amd
 
 Ative e inicie o libvirtd:
 
-	`sudo systemctl enable --now libvirtd`
+	sudo systemctl enable --now libvirtd
 
-	`sudo usermod -aG libvirt $(whoami)`
+	sudo usermod -aG libvirt $(whoami)
 
 ### **Configurando o aplicativo**
 
 Crie um diretório para suas VMs, por exemplo.
 
-	`mkdir -p ~/VMs/Windows`
+	mkdir -p ~/VMs/Windows
 
 Aqui eu estou criando na raiz do sistema, mas também poderia criar em lugares diferentes:
 
-	`mkdir -p ~/home/VMs/Windows`
+	mkdir -p ~/home/VMs/Windows
 
-	`mkdir -p ~/home/seu_usuário/Documentos/VMs/Windows`
+	mkdir -p ~/home/seu_usuário/Documentos/VMs/Windows
 
 ### **Instalação do sistema**
 
@@ -84,13 +84,13 @@ Digite `regedit` e pressione Enter.
 
 Navegue até:
 
-	`HKEY_LOCAL_MACHINE\SYSTEM\Setup`
+	HKEY_LOCAL_MACHINE\SYSTEM\Setup
 
 Crie uma nova chave chamada `LabConfig`
 
 Dentro de `LabConfig`, crie os seguintes valores DWORD (32-bit):
 
-    - `BypassTPMCheck` = `1`
+    - BypassTPMCheck = 1
 
     - `BypassSecureBootCheck` = `1`
 
@@ -108,21 +108,21 @@ Pressione `Shift + F10`
 
 Digite:
 
-	`OOBE\BYPASSNRO`
+	OOBE\BYPASSNRO
 
 
 ### **Ativando a rede `default`:**
 
 Caso ainda não esteja ativa ou retorne erro:
 
-	`sudo virsh net-start default`
+	sudo virsh net-start default
 
 **Garanta que ela sempre inicie automaticamente com o sistema:**
 
-	`sudo virsh net-autostart default`
+	sudo virsh net-autostart default
 
 **Verifique se a rede está ativa com:**
 
-	`virsh net-list --all`
+	virsh net-list --all
 
 Você deve ver `default` com status `active` e `autostart` como `yes`.
